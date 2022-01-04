@@ -1,0 +1,11 @@
+# (uncomment to add a dependency)
+dependencies:
+  - name: diff2html
+    version: 1.0
+    src: "htmlwidgets/lib/diff2html"
+    script:
+      - jquery.min.js
+      - diff2html-ui.min.js
+    stylesheet:
+      - github.min.css
+      - diff2html.min.css
