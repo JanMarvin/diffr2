@@ -1,4 +1,5 @@
 
+# requires curl
 
 dir.create("inst/htmlwidgets/lib/diff2html")
 
@@ -23,6 +24,6 @@ curl::curl_download(diff2html_ui_min_js, "inst/htmlwidgets/lib/diff2html/diff2ht
 
 dir.create("inst/js")
 
-diff_js <- "http://incaseofstairs.com/jsdiff/diff.js"
-curl::curl_download(diff_js, "inst/js/diff.js")
+diff_js <- "https://cdnjs.cloudflare.com/ajax/libs/jsdiff/5.0.0/diff.min.js"
+curl::curl_download(diff_js, "inst/js/diff.min.js")
 

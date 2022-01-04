@@ -15,10 +15,10 @@ create_diff <- function(oldFile, newFile) {
 
   ct <- V8::v8()
 
-  ct$source(system.file("js/diff.js", package="diffr2"))
+  ct$source(system.file("js/diff.min.js", package="diffr2"))
 
 
-  z <- ct$call( "function(oldText, newText){return JsDiff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
+  z <- ct$call("function(oldText, newText){return Diff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
                 old, new)
   z
 }
