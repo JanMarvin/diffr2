@@ -104,14 +104,14 @@ diffr2 <- function(oldFile,
     maxLineLengthHighlight = maxLineLengthHighlight,
     diffStyle = diffStyle,
     renderNothingWhenEmpty = to_lower_js(renderNothingWhenEmpty),
-    matchingMaxComparisons = matchingMaxComparisons,
-    maxLineSizeInBlockForComparison = maxLineSizeInBlockForComparison
+    matchingMaxComparisons = as.character(matchingMaxComparisons),
+    maxLineSizeInBlockForComparison = as.character(maxLineSizeInBlockForComparison)
   )
 
   # create the widget
   createWidget(
     name = 'diffr2',
-    x,
+    x = x,
     width = width,
     height = height,
     package = 'diffr2'

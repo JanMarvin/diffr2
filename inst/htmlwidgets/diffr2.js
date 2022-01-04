@@ -16,8 +16,8 @@ HTMLWidgets.widget({
     // document.body.style.overflow = "auto";
 
     /*
-    console.log(el);
     console.log(x);
+    console.log(el);
     console.log(instance);
     */
 
@@ -41,7 +41,7 @@ HTMLWidgets.widget({
         diffStyle: x.diffStyle,
         renderNothingWhenEmpty: x.renderNothingWhenEmpty,
         matchingMaxComparisons: x.matchingMaxComparisons,
-        maxLineSizeInBlockForComparison: x.maxLineSizeInBlockForComparison
+        maxLineSizeInBlockForComparison: x.maxLineSizeInBlockForComparison,
       };
       var diff2htmlUi = new Diff2HtmlUI(targetElement, x.diffString, configuration);
       diff2htmlUi.draw();

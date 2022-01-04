@@ -4,7 +4,6 @@ dependencies:
     version: 1.0
     src: "htmlwidgets/lib/diff2html"
     script:
-      - jquery.min.js
       - diff2html-ui.min.js
     stylesheet:
       - github.min.css
