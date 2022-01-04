@@ -11,4 +11,6 @@ writeLines(paste0(
 "hello world?\nI don't get it\n",
 paste0(sample(letters, 65, replace = TRUE), collapse = "")), con = file2)
 diffr2(file1, file2, before = "f1", after = "f2")
+
+message(create_diff(file1, file2))
 ```
