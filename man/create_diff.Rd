@@ -12,5 +12,5 @@ create_diff(oldFile, newFile)
 \item{newFile}{new}
 }
 \description{
-shows the diff of two text files. Based on diffjs (BSD) js library by Kevin Decker
+shows the diff of two text files. Based on jsdiff (BSD) js library by Kevin Decker
 }

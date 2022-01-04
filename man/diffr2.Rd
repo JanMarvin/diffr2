@@ -39,7 +39,7 @@ diffr2(
 
 \item{height}{for \code{\link{createWidget}}}
 
-\item{synchronisedScroll}{scroll both panes in side-by-side mode: TRUE or , default is TRUE}
+\item{synchronisedScroll}{scroll both panes in side-by-side mode: TRUE or FALSE, default is TRUE}
 
 \item{highlight}{syntax highlight the code on the diff: TRUE or FALSE, default is TRUE}
 

@@ -1,6 +1,6 @@
 
 #' create the diff as character string
-#' @description shows the diff of two text files. Based on diffjs (BSD) js library by Kevin Decker
+#' @description shows the diff of two text files. Based on jsdiff (BSD) js library by Kevin Decker
 #'
 #' @param oldFile old
 #' @param newFile new
@@ -30,7 +30,7 @@ create_diff <- function(oldFile, newFile) {
 #' @param diff Alternatively you can provide your diff file. If provided, it overrides oldFile & newFile diff.
 #' @param width for \code{\link{createWidget}}
 #' @param height for \code{\link{createWidget}}
-#' @param synchronisedScroll scroll both panes in side-by-side mode: TRUE or , default is TRUE
+#' @param synchronisedScroll scroll both panes in side-by-side mode: TRUE or FALSE, default is TRUE
 #' @param highlight syntax highlight the code on the diff: TRUE or FALSE, default is TRUE
 #' @param fileListToggle allow the file summary list to be toggled: TRUE or FALSE, default is TRUE
 #' @param fileListStartVisible choose if the file summary list starts visible: TRUE or FALSE, default is FALSE
