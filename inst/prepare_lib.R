@@ -15,7 +15,7 @@ jsdiff_ver <- "5.0.0"
 highlightjs <- sprintf("inst/htmlwidgets/lib/highlight.js-%s", highlightjs_ver)
 dir.create(highlightjs)
 
-github_min_css <- sprintf("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@%s/build/styles//github.min.css", highlightjs_ver)
+github_min_css <- sprintf("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@%s/build/styles/github.min.css", highlightjs_ver)
 curl::curl_download(github_min_css, paste0(highlightjs, "/github.min.css"))
 
 hightlightjs_lic <- sprintf("https://cdn.jsdelivr.net/npm/highlight.js@%s/LICENSE", highlightjs_ver)
