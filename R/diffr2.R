@@ -8,17 +8,19 @@
 #' @export
 create_diff <- function(oldFile = NULL, newFile = NULL) {
 
-  if (!is.null(oldFile) & !is.null(newFile))
-    if (!file.exists(oldFile) || !file.exists(newFile))
-      stop("oldFile and/or newFile not found")
-
-  old <- readLines(oldFile)
-  old <- paste(old, collapse = "\n")
-  new <- readLines(newFile)
-  new <- paste(new, collapse = "\n")
+  if (!is.null(oldFile) & !is.null(newFile)) {
+    if (!file.exists(oldFile) || !file.exists(newFile)) {
+      old <- oldFile
+      new <- newFile
+    } else {
+      old <- paste(readLines(oldFile), collapse = "\n")
+      new <- paste(readLines(newFile), collapse = "\n")
+    }
+  } else {
+    stop("oldFile and/or newFile not found")
+  }
 
   ct <- V8::v8()
-
   ct$source(system.file("js/jsdiff-5.0.0/diff.min.js", package = "diffr2"))
 
   z <- ct$call("function(oldText, newText) {return Diff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
@@ -27,10 +29,10 @@ create_diff <- function(oldFile = NULL, newFile = NULL) {
 }
 
 #' @title View text file differences
-#' @description Shows diff based on the diff2html (MIT) js library by Rodrigo Fernandes
-#' @param oldFile Your reference file (the old file).
-#' @param newFile Your comparison file (the new file).
-#' @param diff Alternatively you can provide your diff file. If provided, it overrides oldFile & newFile diff.
+#' @description Shows diff based on the diff2html (MIT) js library by Rodrigo Fernandes. Most of the option descriptions are from their github page.
+#' @param oldFile Your reference file (the old file). Either a path or a character.
+#' @param newFile Your comparison file (the new file). Either a path or a character.
+#' @param diff Alternatively you can provide your diff file. Either a path or a character. If provided, it overrides oldFile & newFile diff.
 #' @param width for \code{\link{createWidget}}
 #' @param height for \code{\link{createWidget}}
 #' @param synchronisedScroll scroll both panes in side-by-side mode: TRUE or FALSE, default is TRUE
@@ -95,8 +97,12 @@ diffr2 <- function(
       stop("oldFile and/or newFile not found")
 
   # override if diff is provided (could be from git diff etc.)
-  if (is.null(diff))
+  if (!is.null(diff)) {
+    # support reading diff from file
+    if (file.exists(diff)) diff <- paste(readLines(diff), collapse = "\n")
+  } else {
     diff <- create_diff(oldFile, newFile)
+  }
 
   # create true/false for js
   to_lower_js <- function(x) tolower(as.character(x))

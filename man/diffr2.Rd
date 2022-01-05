@@ -29,11 +29,11 @@ diffr2(
 )
 }
 \arguments{
-\item{oldFile}{Your reference file (the old file).}
+\item{oldFile}{Your reference file (the old file). Either a path or a character.}
 
-\item{newFile}{Your comparison file (the new file).}
+\item{newFile}{Your comparison file (the new file). Either a path or a character.}
 
-\item{diff}{Alternatively you can provide your diff file. If provided, it overrides oldFile & newFile diff.}
+\item{diff}{Alternatively you can provide your diff file. Either a path or a character. If provided, it overrides oldFile & newFile diff.}
 
 \item{width}{for \code{\link{createWidget}}}
 
@@ -72,7 +72,7 @@ diffr2(
 \item{maxLineSizeInBlockForComparison}{maximum number os characters of the bigger line in a block to apply comparison, default is 200}
 }
 \description{
-Shows diff based on the diff2html (MIT) js library by Rodrigo Fernandes
+Shows diff based on the diff2html (MIT) js library by Rodrigo Fernandes. Most of the option descriptions are from their github page.
 }
 \examples{
 library(diffr2)
