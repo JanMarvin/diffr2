@@ -11,10 +11,14 @@ create_diff <- function(oldFile = NULL, newFile = NULL) {
   if (!is.null(oldFile) & !is.null(newFile)) {
     if (!file.exists(oldFile) || !file.exists(newFile)) {
       old <- oldFile
+      oldFile <- "file"
       new <- newFile
+      newFile <- "file"
     } else {
       old <- paste(readLines(oldFile), collapse = "\n")
+      oldFile <- basename(oldFile)
       new <- paste(readLines(newFile), collapse = "\n")
+      newFile <- basename(newFile)
     }
   } else {
     stop("oldFile and/or newFile not found")
@@ -23,8 +27,8 @@ create_diff <- function(oldFile = NULL, newFile = NULL) {
   ct <- V8::v8()
   ct$source(system.file("js/jsdiff-5.0.0/diff.min.js", package = "diffr2"))
 
-  z <- ct$call("function(oldText, newText) {return Diff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
-               old, new)
+  z <- ct$call("function(oldFile, newFile, oldText, newText) {return Diff.createTwoFilesPatch(oldFile, newFile, oldText, newText);}",
+               oldFile, newFile, old, new)
   z
 }
 
