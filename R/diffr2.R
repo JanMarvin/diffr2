@@ -6,7 +6,11 @@
 #' @param newFile new
 #' @importFrom V8 v8
 #' @export
-create_diff <- function(oldFile, newFile) {
+create_diff <- function(oldFile = NULL, newFile = NULL) {
+
+  if (!is.null(oldFile) & !is.null(newFile))
+    if (!file.exists(oldFile) || !file.exists(newFile))
+      stop("oldFile and/or newFile not found")
 
   old <- readLines(oldFile)
   old <- paste(old, collapse = "\n")
@@ -57,9 +61,9 @@ create_diff <- function(oldFile, newFile) {
 #' paste0(sample(letters, 65, replace = TRUE), collapse = "")), con = file2)
 #' diffr2(file1, file2)
 diffr2 <- function(
-    oldFile,
-    newFile,
-    diff,
+    oldFile = NULL,
+    newFile = NULL,
+    diff = NULL,
     width = NULL,
     height = NULL,
     synchronisedScroll = TRUE,
@@ -80,9 +84,18 @@ diffr2 <- function(
     maxLineSizeInBlockForComparison = 200
 ) {
 
+  if (is.null(oldFile) & is.null(newFile) & is.null(diff))
+    stop("no input provided")
+
+  if (is.null(newFile) & is.null(diff))
+    diff <- oldFile # override for lazy programmer
+
+  if (!is.null(oldFile) & !is.null(newFile))
+    if (!file.exists(oldFile) || !file.exists(newFile))
+      stop("oldFile and/or newFile not found")
 
   # override if diff is provided (could be from git diff etc.)
-  if (missing(diff))
+  if (is.null(diff))
     diff <- create_diff(oldFile, newFile)
 
   # create true/false for js

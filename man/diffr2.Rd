@@ -5,9 +5,9 @@
 \title{View text file differences}
 \usage{
 diffr2(
-  oldFile,
-  newFile,
-  diff,
+  oldFile = NULL,
+  newFile = NULL,
+  diff = NULL,
   width = NULL,
   height = NULL,
   synchronisedScroll = TRUE,

@@ -4,7 +4,7 @@
 \alias{create_diff}
 \title{create the diff as character string}
 \usage{
-create_diff(oldFile, newFile)
+create_diff(oldFile = NULL, newFile = NULL)
 }
 \arguments{
 \item{oldFile}{old}
