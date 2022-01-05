@@ -8,17 +8,17 @@
 #' @export
 create_diff <- function(oldFile, newFile) {
 
-  old = readLines(oldFile)
-  old = paste(old, collapse = "\n")
-  new = readLines(newFile)
-  new = paste(new, collapse = "\n")
+  old <- readLines(oldFile)
+  old <- paste(old, collapse = "\n")
+  new <- readLines(newFile)
+  new <- paste(new, collapse = "\n")
 
   ct <- V8::v8()
 
-  ct$source(system.file("js/diff.min.js", package="diffr2"))
+  ct$source(system.file("js/diff.min.js", package = "diffr2"))
 
 
-  z <- ct$call("function(oldText, newText){return Diff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
+  z <- ct$call("function(oldText, newText) {return Diff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
                 old, new)
   z
 }
@@ -86,10 +86,10 @@ diffr2 <- function(oldFile,
     diff <- create_diff(oldFile, newFile)
 
   # create true/false for js
-  to_lower_js <- function(x) {tolower(as.character(x))}
+  to_lower_js <- function(x) tolower(as.character(x))
 
   # forward options using x
-  x = list(
+  x <- list(
     diffString = diff,
     synchronisedScroll = to_lower_js(synchronisedScroll),
     highlight = to_lower_js(highlight),
