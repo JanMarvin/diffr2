@@ -15,11 +15,10 @@ create_diff <- function(oldFile, newFile) {
 
   ct <- V8::v8()
 
-  ct$source(system.file("js/diff.min.js", package = "diffr2"))
-
+  ct$source(system.file("js/jsdiff-5.0.0/diff.min.js", package = "diffr2"))
 
   z <- ct$call("function(oldText, newText) {return Diff.createTwoFilesPatch(\"file\", \"file\", oldText, newText);}",
-                old, new)
+               old, new)
   z
 }
 
@@ -57,27 +56,28 @@ create_diff <- function(oldFile, newFile) {
 #' "hello world?\nI don't get it\n",
 #' paste0(sample(letters, 65, replace = TRUE), collapse = "")), con = file2)
 #' diffr2(file1, file2)
-diffr2 <- function(oldFile,
-                   newFile,
-                   diff,
-                   width = NULL,
-                   height = NULL,
-                   synchronisedScroll = TRUE,
-                   highlight = TRUE,
-                   fileListToggle = TRUE,
-                   fileListStartVisible = FALSE,
-                   fileContentToggle = TRUE,
-                   outputFormat = "line-by-line",
-                   drawFileList = TRUE,
-                   diffMaxChanges = NA,
-                   diffMaxLineLength = NA,
-                   matching = "none",
-                   matchWordsThreshold = 0.25,
-                   maxLineLengthHighlight = 10000,
-                   diffStyle = "word",
-                   renderNothingWhenEmpty = FALSE,
-                   matchingMaxComparisons = 2500,
-                   maxLineSizeInBlockForComparison = 200
+diffr2 <- function(
+    oldFile,
+    newFile,
+    diff,
+    width = NULL,
+    height = NULL,
+    synchronisedScroll = TRUE,
+    highlight = TRUE,
+    fileListToggle = TRUE,
+    fileListStartVisible = FALSE,
+    fileContentToggle = TRUE,
+    outputFormat = "line-by-line",
+    drawFileList = TRUE,
+    diffMaxChanges = NA,
+    diffMaxLineLength = NA,
+    matching = "none",
+    matchWordsThreshold = 0.25,
+    maxLineLengthHighlight = 10000,
+    diffStyle = "word",
+    renderNothingWhenEmpty = FALSE,
+    matchingMaxComparisons = 2500,
+    maxLineSizeInBlockForComparison = 200
 ) {
 
 

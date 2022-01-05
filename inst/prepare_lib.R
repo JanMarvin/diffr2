@@ -1,29 +1,51 @@
 
 # requires curl
 
-dir.create("inst/htmlwidgets/lib/diff2html")
+# js and css files for htmlwidget
 
-github_min_css <- "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css"
-curl::curl_download(github_min_css, "inst/htmlwidgets/lib/diff2html/github.min.css")
+unlink("inst/htmlwidgets/lib", recursive = TRUE)
+dir.create("inst/htmlwidgets/lib")
 
-diff2html_min_css <- "https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css"
-curl::curl_download(diff2html_min_css, "inst/htmlwidgets/lib/diff2html/diff2html.min.css")
-
-diff2html_ui_min_js <- "https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html-ui.min.js"
-curl::curl_download(diff2html_ui_min_js, "inst/htmlwidgets/lib/diff2html/diff2html-ui.min.js")
-
-# jquery_min_js <- "https://code.jquery.com/jquery-3.6.0.min.js"
-# curl::curl_download(jquery_min_js, "inst/htmlwidgets/lib/diff2html/jquery.min.js")
+highlightjs_ver <- "11.3.1"
+diff2html_ver <- "3.4.13"
+jsdiff_ver <- "5.0.0"
 
 
-# dir.create("inst/htmlwidgets/lib/difflib")
-#
-# difflib_js <- "https://github.com/qiao/difflib.js/raw/master/dist/difflib-browser.js"
-# curl::curl_download(difflib_js, "inst/htmlwidgets/lib/difflib/difflib.js")
+#### highlight.js ####
+highlightjs <- sprintf("inst/htmlwidgets/lib/highlight.js-%s", highlightjs_ver)
+dir.create(highlightjs)
+
+github_min_css <- sprintf("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@%s/build/styles//github.min.css", highlightjs_ver)
+curl::curl_download(github_min_css, paste0(highlightjs, "/github.min.css"))
+
+hightlightjs_lic <- sprintf("https://cdn.jsdelivr.net/npm/highlight.js@%s/LICENSE", highlightjs_ver)
+curl::curl_download(hightlightjs_lic, paste0(highlightjs, "/LICENSE"))
 
 
+#### diff2html ####
+diff2html <- sprintf("inst/htmlwidgets/lib/diff2html-%s", diff2html_ver)
+dir.create(diff2html)
+
+diff2html_min_css <- sprintf("https://cdn.jsdelivr.net/npm/diff2html@%s/bundles/css/diff2html.min.css", diff2html_ver)
+curl::curl_download(diff2html_min_css, paste0(diff2html, "/diff2html.min.css"))
+
+diff2html_ui_min_js <- sprintf("https://cdn.jsdelivr.net/npm/diff2html@%s/bundles/js/diff2html-ui.min.js", diff2html_ver)
+curl::curl_download(diff2html_ui_min_js, paste0(diff2html, "/diff2html-ui.min.js"))
+
+diff2html_lic <- sprintf("https://cdn.jsdelivr.net/npm/diff2html@%s/LICENSE.md", diff2html_ver)
+curl::curl_download(diff2html_lic, paste0(diff2html, "/LICENSE"))
+
+
+
+unlink("inst/js", recursive = TRUE)
 dir.create("inst/js")
 
-diff_js <- "https://cdnjs.cloudflare.com/ajax/libs/jsdiff/5.0.0/diff.min.js"
-curl::curl_download(diff_js, "inst/js/diff.min.js")
+#### jsdiff ####
+jsdiff <- sprintf("inst/js/jsdiff-%s", jsdiff_ver)
+dir.create(jsdiff)
 
+diff_js <- sprintf("https://cdn.jsdelivr.net/npm/diff@%s/dist/diff.js", jsdiff_ver)
+curl::curl_download(diff_js, paste0(jsdiff, "/diff.min.js"))
+
+jsdiff_lic <- sprintf("https://cdn.jsdelivr.net/npm/diff@%s/LICENSE", jsdiff_ver)
+curl::curl_download(jsdiff_lic, paste0(jsdiff, "/LICENSE"))

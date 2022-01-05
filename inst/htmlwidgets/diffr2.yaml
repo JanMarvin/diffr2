@@ -1,10 +1,14 @@
 # (uncomment to add a dependency)
 dependencies:
+  - name: highlight.js
+    version: 11.3.1
+    src: "htmlwidgets/lib/highlight.js-11.3.1"
+    stylesheet:
+      - github.min.css
   - name: diff2html
-    version: 1.0
-    src: "htmlwidgets/lib/diff2html"
+    version: 3.4.13
+    src: "htmlwidgets/lib/diff2html-3.4.13"
     script:
       - diff2html-ui.min.js
     stylesheet:
-      - github.min.css
       - diff2html.min.css
