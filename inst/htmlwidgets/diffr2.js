@@ -6,7 +6,7 @@ HTMLWidgets.widget({
 
     return {
       renderValue: function(x) {
-        // document.body.style.overflow = "auto";
+        document.body.style.overflow = "auto";
 
         /*
           console.log(x);
