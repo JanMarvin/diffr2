@@ -2,5 +2,7 @@
 
 export(create_diff)
 export(diffr2)
+export(diffr2Output)
+export(renderDiffr2)
 importFrom(V8,v8)
 importFrom(htmlwidgets,createWidget)

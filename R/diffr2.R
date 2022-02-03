@@ -55,6 +55,7 @@ create_diff <- function(oldFile = NULL, newFile = NULL) {
 #' @param renderNothingWhenEmpty render nothing if the diff shows no change in its comparison: TRUE or FALSE, default is FALSE
 #' @param matchingMaxComparisons perform at most this much comparisons for line matching a block of changes, default is 2500
 #' @param maxLineSizeInBlockForComparison maximum number os characters of the bigger line in a block to apply comparison, default is 200
+#' @param divname the default is `'htmlwidget_container'`, for shiny it must match the `output$divname`
 #' @importFrom htmlwidgets createWidget
 #' @export
 #' @examples
@@ -87,7 +88,8 @@ diffr2 <- function(
     diffStyle = "word",
     renderNothingWhenEmpty = FALSE,
     matchingMaxComparisons = 2500,
-    maxLineSizeInBlockForComparison = 200
+    maxLineSizeInBlockForComparison = 200,
+    divname = 'htmlwidget_container'
 ) {
 
   if (is.null(oldFile) & is.null(newFile) & is.null(diff))
@@ -128,7 +130,8 @@ diffr2 <- function(
     diffStyle = diffStyle,
     renderNothingWhenEmpty = to_lower_js(renderNothingWhenEmpty),
     matchingMaxComparisons = as.character(matchingMaxComparisons),
-    maxLineSizeInBlockForComparison = as.character(maxLineSizeInBlockForComparison)
+    maxLineSizeInBlockForComparison = as.character(maxLineSizeInBlockForComparison),
+    divname = divname
   )
 
   # create the widget
@@ -139,4 +142,28 @@ diffr2 <- function(
     height = height,
     package = 'diffr2'
   )
+}
+
+#' Wrapper functions for using \pkg{diffr2} in \pkg{shiny}
+#'
+#' Use \code{diffr2Output()} to create a UI element, and \code{renderDiffr2()}
+#' to render the diffr2 widget.
+#' @inheritParams htmlwidgets::shinyWidgetOutput
+#' @param width,height the width and height of the diffr2 widget
+#' @rdname diffr2-shiny
+#' @export
+diffr2Output <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(outputId, "diffr2", width, height, "diffr2")
+}
+# use expr description from htmlwidgets to avoid bad inherit params code
+#' @details When calling \code{renderDiffr2()} make sure that \code{divname}
+#' matches the selected shiny output name. The div name is used to attach the
+#' diff2html output. Otherwise the canvas will be blank.
+#' @param expr An expression that generates an HTML widget (or a
+#'   \href{https://rstudio.github.io/promises/}{promise} of an HTML widget).
+#' @rdname diffr2-shiny
+#' @export
+renderDiffr2 <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  htmlwidgets::shinyRenderWidget(expr, diffr2Output, env, quoted = TRUE)
 }

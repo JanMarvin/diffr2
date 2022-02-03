@@ -25,7 +25,8 @@ diffr2(
   diffStyle = "word",
   renderNothingWhenEmpty = FALSE,
   matchingMaxComparisons = 2500,
-  maxLineSizeInBlockForComparison = 200
+  maxLineSizeInBlockForComparison = 200,
+  divname = "htmlwidget_container"
 )
 }
 \arguments{
@@ -70,6 +71,8 @@ diffr2(
 \item{matchingMaxComparisons}{perform at most this much comparisons for line matching a block of changes, default is 2500}
 
 \item{maxLineSizeInBlockForComparison}{maximum number os characters of the bigger line in a block to apply comparison, default is 200}
+
+\item{divname}{the default is `'htmlwidget_container'`, for shiny it must match the `output$divname`}
 }
 \description{
 Shows diff based on the diff2html (MIT) js library by Rodrigo Fernandes. Most of the option descriptions are from their github page.

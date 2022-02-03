@@ -16,7 +16,7 @@ HTMLWidgets.widget({
         // either needed?
         //document.addEventListener('DOMContentLoaded', function () {
         //$(funtion() {
-        var targetElement = document.getElementById('htmlwidget_container');
+        var targetElement = document.getElementById(x.divname);
         var configuration = {
           synchronisedScroll: x.synchronisedScroll,
           highlight: x.highlight,
