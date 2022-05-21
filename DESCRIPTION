@@ -11,6 +11,6 @@ Description: An R interface to the 'diff2html' JavaScript library (see <https://
 Imports: V8, htmlwidgets
 BugReports: https://github.com/JanMarvin/diffr2/issues
 License: MIT + file LICENSE
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Language: en-US
 Encoding: UTF-8
