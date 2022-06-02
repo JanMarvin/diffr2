@@ -2,7 +2,7 @@
 % Please edit documentation in R/diffr2.R
 \name{create_diff}
 \alias{create_diff}
-\title{create the diff as character string}
+\title{create a diff as character string}
 \usage{
 create_diff(oldFile = NULL, newFile = NULL)
 }
@@ -12,5 +12,11 @@ create_diff(oldFile = NULL, newFile = NULL)
 \item{newFile}{new}
 }
 \description{
-shows the diff of two text files. Based on jsdiff (BSD) js library by Kevin Decker
+creates a diff of two text files. Based on jsdiff (BSD)
+javascript library by Kevin Decker. If character vectors are supplied, a
+diff will be created from them as well.
+}
+\examples{
+ create_diff("foo\nbar", "foo\nbaz")
+
 }

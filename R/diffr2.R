@@ -1,6 +1,11 @@
 
-#' create the diff as character string
-#' @description shows the diff of two text files. Based on jsdiff (BSD) js library by Kevin Decker
+#' create a diff as character string
+#' @description creates a diff of two text files. Based on jsdiff (BSD)
+#' javascript library by Kevin Decker. If character vectors are supplied, a
+#' diff will be created from them as well.
+#'
+#' @examples
+#'  create_diff("foo\nbar", "foo\nbaz")
 #'
 #' @param oldFile old
 #' @param newFile new
@@ -92,15 +97,11 @@ diffr2 <- function(
     divname = 'htmlwidget_container'
 ) {
 
-  if (is.null(oldFile) & is.null(newFile) & is.null(diff))
+  if (is.null(oldFile) && is.null(newFile) && is.null(diff))
     stop("no input provided")
 
   if (is.null(newFile) & is.null(diff))
     diff <- oldFile # override for lazy programmer
-
-  if (!is.null(oldFile) & !is.null(newFile))
-    if (!file.exists(oldFile) || !file.exists(newFile))
-      stop("oldFile and/or newFile not found")
 
   # override if diff is provided (could be from git diff etc.)
   if (!is.null(diff)) {
