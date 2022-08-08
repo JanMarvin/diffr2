@@ -8,7 +8,21 @@ With `create_diff()` it is possible to create diffs from characters or text file
 
 If necessary, `diffr2` can be used in combination with [`shiny`](https://shiny.rstudio.com/). An example file is included.
 
-## example code
+## Installation
+
+Either with `remotes::install_github("JanMarvin/diffr2")` or via r-universe:
+
+```R
+# Enable repository from janmarvin
+options(repos = c(
+  janmarvin = 'https://janmarvin.r-universe.dev',
+  CRAN = 'https://cloud.r-project.org'))
+# Download and install diffr2 in R
+install.packages('diffr2')
+```
+
+
+## Code example
 
 ``` r
 library(diffr2)
