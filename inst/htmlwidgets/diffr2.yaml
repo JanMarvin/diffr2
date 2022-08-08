@@ -6,8 +6,8 @@ dependencies:
     stylesheet:
       - github.min.css
   - name: diff2html
-    version: 3.4.13
-    src: "htmlwidgets/lib/diff2html-3.4.13"
+    version: 3.4.18
+    src: "htmlwidgets/lib/diff2html-3.4.18"
     script:
       - diff2html-ui.min.js
     stylesheet:

@@ -7,7 +7,7 @@ unlink("inst/htmlwidgets/lib", recursive = TRUE)
 dir.create("inst/htmlwidgets/lib")
 
 highlightjs_ver <- "11.3.1"
-diff2html_ver <- "3.4.13"
+diff2html_ver <- "3.4.18"
 jsdiff_ver <- "5.0.0"
 
 
@@ -35,8 +35,6 @@ curl::curl_download(diff2html_ui_min_js, paste0(diff2html, "/diff2html-ui.min.js
 diff2html_lic <- sprintf("https://cdn.jsdelivr.net/npm/diff2html@%s/LICENSE.md", diff2html_ver)
 curl::curl_download(diff2html_lic, paste0(diff2html, "/LICENSE"))
 
-
-
 unlink("inst/js", recursive = TRUE)
 dir.create("inst/js")
 
@@ -49,3 +47,32 @@ curl::curl_download(diff_js, paste0(jsdiff, "/diff.min.js"))
 
 jsdiff_lic <- sprintf("https://cdn.jsdelivr.net/npm/diff@%s/LICENSE", jsdiff_ver)
 curl::curl_download(jsdiff_lic, paste0(jsdiff, "/LICENSE"))
+
+## create diffr2.yaml
+diffr2_yaml <- sprintf(
+"# (uncomment to add a dependency)
+dependencies:
+  - name: highlight.js
+    version: %s
+    src: \"htmlwidgets/lib/highlight.js-%s\"
+    stylesheet:
+      - github.min.css
+  - name: diff2html
+    version: %s
+    src: \"htmlwidgets/lib/diff2html-%s\"
+    script:
+      - diff2html-ui.min.js
+    stylesheet:
+      - diff2html.min.css",
+highlightjs_ver, highlightjs_ver,
+diff2html_ver, diff2html_ver
+)
+writeLines(diffr2_yaml, "inst/htmlwidgets/diffr2.yaml")
+
+## update jsdiff
+r_diffr2 <- gsub(
+  pattern = "js/jsdiff-*.diff.min.js",
+  replacement = sprintf("js/jsdiff-%s.diff.min.js", jsdiff_ver),
+  x = readLines("R/diffr2.R")
+)
+writeLines(r_diffr2, "R/diffr2.R")
