@@ -113,26 +113,23 @@ diffr2 <- function(
     diff <- create_diff(oldFile, newFile)
   }
 
-  # create true/false for js
-  to_lower_js <- function(x) tolower(as.character(x))
-
   # forward options using x
   x <- list(
     diffString = diff,
-    synchronisedScroll = to_lower_js(synchronisedScroll),
-    stickyFileHeaders = to_lower_js(stickyFileHeaders),
-    highlight = to_lower_js(highlight),
-    fileListToggle = to_lower_js(fileListToggle),
-    fileListStartVisible = to_lower_js(fileListStartVisible),
+    synchronisedScroll = synchronisedScroll,
+    stickyFileHeaders = stickyFileHeaders,
+    highlight = highlight,
+    fileListToggle = fileListToggle,
+    fileListStartVisible = fileListStartVisible,
     outputFormat = outputFormat,
-    drawFileList = to_lower_js(drawFileList),
+    drawFileList = drawFileList,
     diffMaxChanges = diffMaxChanges,
     diffMaxLineLength = diffMaxLineLength,
     matching = matching,
     matchWordsThreshold = matchWordsThreshold,
     maxLineLengthHighlight = maxLineLengthHighlight,
     diffStyle = diffStyle,
-    renderNothingWhenEmpty = to_lower_js(renderNothingWhenEmpty),
+    renderNothingWhenEmpty = renderNothingWhenEmpty,
     matchingMaxComparisons = as.character(matchingMaxComparisons),
     maxLineSizeInBlockForComparison = as.character(maxLineSizeInBlockForComparison),
     divname = divname
