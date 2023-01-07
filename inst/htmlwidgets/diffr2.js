@@ -36,8 +36,13 @@ HTMLWidgets.widget({
         };
         var diff2htmlUi = new Diff2HtmlUI(targetElement, x.diffString, configuration);
         diff2htmlUi.draw();
-        diff2htmlUi.highlightCode();
+
+        // FIXME not required?
+        // diff2htmlUi.highlightCode();
       },
+
+      // empty
+      resize: function(width, height) {}
 
     };
   }
