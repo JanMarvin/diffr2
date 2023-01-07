@@ -11,6 +11,7 @@ diffr2(
   width = NULL,
   height = NULL,
   synchronisedScroll = TRUE,
+  stickyFileHeaders = TRUE,
   highlight = TRUE,
   fileListToggle = TRUE,
   fileListStartVisible = FALSE,
@@ -41,6 +42,8 @@ diffr2(
 \item{height}{for \code{\link{createWidget}}}
 
 \item{synchronisedScroll}{scroll both panes in side-by-side mode: TRUE or FALSE, default is TRUE}
+
+\item{stickyFileHeaders}{make file headers sticky: TRUE or FALSE, default is TRUE}
 
 \item{highlight}{syntax highlight the code on the diff: TRUE or FALSE, default is TRUE}
 
