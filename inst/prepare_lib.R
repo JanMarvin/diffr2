@@ -32,6 +32,25 @@ curl::curl_download(diff2html_min_css, paste0(diff2html, "/diff2html.min.css"))
 diff2html_ui_min_js <- sprintf("https://cdn.jsdelivr.net/npm/diff2html@%s/bundles/js/diff2html-ui.min.js", diff2html_ver)
 curl::curl_download(diff2html_ui_min_js, paste0(diff2html, "/diff2html-ui.min.js"))
 
+# patch css
+diff2html_css <- paste0(diff2html, "/diff2html.min.css") |>
+  readLines(warn = FALSE) |>
+  # avoid empty white space after colored line
+  gsub(
+    ".d2h-code-line\\{padding:0 8em;width:100%\\}",
+    ".d2h-code-line\\{padding:0 8em;\\}",
+    x = _
+  ) |>
+  # avoid broken side-by-side view in firefox
+  gsub(
+    ".d2h-file-side-diff\\{display:inline-block;overflow-x:scroll;overflow-y:hidden;width:50%\\}",
+    ".d2h-file-side-diff\\{display:inline-block;overflow-x:scroll;overflow-y:hidden;width:49.8%\\}",
+    x = _
+  ) |>
+writeLines(
+  paste0(diff2html, "/diff2html.min.css")
+)
+
 diff2html_lic <- sprintf("https://cdn.jsdelivr.net/npm/diff2html@%s/LICENSE.md", diff2html_ver)
 curl::curl_download(diff2html_lic, paste0(diff2html, "/LICENSE"))
 
