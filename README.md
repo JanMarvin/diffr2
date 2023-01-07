@@ -39,6 +39,11 @@ message(create_diff(a, b))
 # git diff in side by side format
 git_head <- paste(gert::git_diff_patch(ref = "HEAD^", repo = "."), collapse = "\n")
 diffr2(diff = git_head, outputFormat = "side-by-side")
+
+# read github commit as diff
+tmp <- tempfile(fileext = ".diff")
+download.file(url = "https://github.com/JanMarvin/diffr2/commit/deff0afe7a2cbaabd42d93fd13a4f8dd0dfabb03.diff", tmp)
+diffr2(tmp)
 ```
 
 ## Screenshot from the included shiny example

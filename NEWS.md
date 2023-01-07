@@ -1,4 +1,9 @@
 
+# 1.3
+ * update diff2html
+ * fix argument passing
+ * patch internal css for use in htmlwidget and Firefox
+
 # 1.2
  * add shiny example
 
