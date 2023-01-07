@@ -45,6 +45,7 @@ create_diff <- function(oldFile = NULL, newFile = NULL) {
 #' @param width for \code{\link{createWidget}}
 #' @param height for \code{\link{createWidget}}
 #' @param synchronisedScroll scroll both panes in side-by-side mode: TRUE or FALSE, default is TRUE
+#' @param stickyFileHeaders make file headers sticky: TRUE or FALSE, default is TRUE
 #' @param highlight syntax highlight the code on the diff: TRUE or FALSE, default is TRUE
 #' @param fileListToggle allow the file summary list to be toggled: TRUE or FALSE, default is TRUE
 #' @param fileListStartVisible choose if the file summary list starts visible: TRUE or FALSE, default is FALSE
@@ -79,6 +80,7 @@ diffr2 <- function(
     width = NULL,
     height = NULL,
     synchronisedScroll = TRUE,
+    stickyFileHeaders = TRUE,
     highlight = TRUE,
     fileListToggle = TRUE,
     fileListStartVisible = FALSE,
@@ -118,6 +120,7 @@ diffr2 <- function(
   x <- list(
     diffString = diff,
     synchronisedScroll = to_lower_js(synchronisedScroll),
+    stickyFileHeaders = to_lower_js(stickyFileHeaders),
     highlight = to_lower_js(highlight),
     fileListToggle = to_lower_js(fileListToggle),
     fileListStartVisible = to_lower_js(fileListStartVisible),

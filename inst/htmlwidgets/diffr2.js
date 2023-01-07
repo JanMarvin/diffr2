@@ -19,6 +19,7 @@ HTMLWidgets.widget({
         var targetElement = document.getElementById(x.divname);
         var configuration = {
           synchronisedScroll: x.synchronisedScroll,
+          stickyFileHeaders: x.stickyFileHeaders,
           highlight: x.highlight,
           fileListToggle: x.fileListToggle,
           fileListStartVisible: x.fileListStartVisible,
