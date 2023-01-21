@@ -7,7 +7,7 @@ unlink("inst/htmlwidgets/lib", recursive = TRUE)
 dir.create("inst/htmlwidgets/lib")
 
 highlightjs_ver <- "11.3.1"
-diff2html_ver <- "3.4.29"
+diff2html_ver <- "3.4.31"
 jsdiff_ver <- "5.0.0"
 
 
@@ -39,12 +39,6 @@ diff2html_css <- paste0(diff2html, "/diff2html.min.css") |>
   gsub(
     ".d2h-code-line\\{padding:0 8em;width:100%\\}",
     ".d2h-code-line\\{padding:0 8em;\\}",
-    x = _
-  ) |>
-  # avoid broken side-by-side view in firefox
-  gsub(
-    ".d2h-file-side-diff\\{display:inline-block;overflow-x:scroll;overflow-y:hidden;width:50%\\}",
-    ".d2h-file-side-diff\\{display:inline-block;overflow-x:scroll;overflow-y:hidden;width:49.8%\\}",
     x = _
   ) |>
 writeLines(
