@@ -62,6 +62,7 @@ create_diff <- function(oldFile = NULL, newFile = NULL) {
 #' @param matchingMaxComparisons perform at most this much comparisons for line matching a block of changes, default is 2500
 #' @param maxLineSizeInBlockForComparison maximum number os characters of the bigger line in a block to apply comparison, default is 200
 #' @param divname the default is `'htmlwidget_container'`, for shiny it must match the `output$divname`
+#' @param colorScheme color scheme to use for the diff, default is 'auto'. Possible values are light, dark, and auto which will use the browser's preferred color scheme.
 #' @importFrom htmlwidgets createWidget
 #' @export
 #' @examples
@@ -96,7 +97,8 @@ diffr2 <- function(
     renderNothingWhenEmpty = FALSE,
     matchingMaxComparisons = 2500,
     maxLineSizeInBlockForComparison = 200,
-    divname = 'htmlwidget_container'
+    divname = 'htmlwidget_container',
+    colorScheme = "auto"
 ) {
 
   if (is.null(oldFile) && is.null(newFile) && is.null(diff))
@@ -132,7 +134,8 @@ diffr2 <- function(
     renderNothingWhenEmpty = renderNothingWhenEmpty,
     matchingMaxComparisons = as.character(matchingMaxComparisons),
     maxLineSizeInBlockForComparison = as.character(maxLineSizeInBlockForComparison),
-    divname = divname
+    divname = divname,
+    colorScheme = as.character(colorScheme)
   )
 
   # create the widget

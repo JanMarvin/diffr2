@@ -1,6 +1,6 @@
 Package: diffr2
 Title: Display text file differences
-Version: 1.3
+Version: 1.4
 Authors@R: 
     c(person(given = "Jan Marvin",
              family = "Garbuszus",
@@ -14,3 +14,4 @@ License: MIT + file LICENSE
 RoxygenNote: 7.2.3
 Language: en-US
 Encoding: UTF-8
+Remotes: JanMarvin/htmltools

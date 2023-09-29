@@ -6,8 +6,8 @@
 unlink("inst/htmlwidgets/lib", recursive = TRUE)
 dir.create("inst/htmlwidgets/lib")
 
-highlightjs_ver <- "11.3.1"
-diff2html_ver <- "3.4.43"
+highlightjs_ver <- "11.8.0"
+diff2html_ver <- "3.4.44"
 jsdiff_ver <- "5.0.0"
 
 
@@ -17,6 +17,9 @@ dir.create(highlightjs)
 
 github_min_css <- sprintf("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@%s/build/styles/github.min.css", highlightjs_ver)
 curl::curl_download(github_min_css, paste0(highlightjs, "/github.min.css"))
+
+github_dark_min_css <- sprintf("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@%s/build/styles/github-dark.min.css", highlightjs_ver)
+curl::curl_download(github_dark_min_css, paste0(highlightjs, "/github-dark.min.css"))
 
 hightlightjs_lic <- sprintf("https://cdn.jsdelivr.net/npm/highlight.js@%s/LICENSE", highlightjs_ver)
 curl::curl_download(hightlightjs_lic, paste0(highlightjs, "/LICENSE"))
@@ -56,14 +59,17 @@ dependencies:
     version: %s
     src: \"htmlwidgets/lib/highlight.js-%s\"
     stylesheet:
-      - github.min.css
+      - link: github.min.css
+        media: \"screen and (prefers-color-scheme: light)\"
+      - link: github-dark.min.css
+        media: \"screen and (prefers-color-scheme: dark)\"
   - name: diff2html
     version: %s
     src: \"htmlwidgets/lib/diff2html-%s\"
     script:
       - diff2html-ui.min.js
     stylesheet:
-      - diff2html.min.css",
+      - link: diff2html.min.css",
 highlightjs_ver, highlightjs_ver,
 diff2html_ver, diff2html_ver
 )

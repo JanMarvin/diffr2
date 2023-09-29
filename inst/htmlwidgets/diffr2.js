@@ -33,6 +33,7 @@ HTMLWidgets.widget({
           renderNothingWhenEmpty: x.renderNothingWhenEmpty,
           matchingMaxComparisons: x.matchingMaxComparisons,
           maxLineSizeInBlockForComparison: x.maxLineSizeInBlockForComparison,
+          colorScheme: x.colorScheme,
         };
         var diff2htmlUi = new Diff2HtmlUI(targetElement, x.diffString, configuration);
         diff2htmlUi.draw();

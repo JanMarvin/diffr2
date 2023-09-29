@@ -27,7 +27,8 @@ diffr2(
   renderNothingWhenEmpty = FALSE,
   matchingMaxComparisons = 2500,
   maxLineSizeInBlockForComparison = 200,
-  divname = "htmlwidget_container"
+  divname = "htmlwidget_container",
+  colorScheme = "auto"
 )
 }
 \arguments{
@@ -76,6 +77,8 @@ diffr2(
 \item{maxLineSizeInBlockForComparison}{maximum number os characters of the bigger line in a block to apply comparison, default is 200}
 
 \item{divname}{the default is `'htmlwidget_container'`, for shiny it must match the `output$divname`}
+
+\item{colorScheme}{color scheme to use for the diff, default is 'auto'. Possible values are light, dark, and auto which will use the browser's preferred color scheme.}
 }
 \description{
 Shows diff based on the diff2html (MIT) js library by Rodrigo Fernandes. Most of the option descriptions are from their github page.

@@ -1,14 +1,17 @@
 # (uncomment to add a dependency)
 dependencies:
   - name: highlight.js
-    version: 11.3.1
-    src: "htmlwidgets/lib/highlight.js-11.3.1"
+    version: 11.8.0
+    src: "htmlwidgets/lib/highlight.js-11.8.0"
     stylesheet:
-      - github.min.css
+      - link: github.min.css
+        media: "screen and (prefers-color-scheme: light)"
+      - link: github-dark.min.css
+        media: "screen and (prefers-color-scheme: dark)"
   - name: diff2html
-    version: 3.4.43
-    src: "htmlwidgets/lib/diff2html-3.4.43"
+    version: 3.4.44
+    src: "htmlwidgets/lib/diff2html-3.4.44"
     script:
       - diff2html-ui.min.js
     stylesheet:
-      - diff2html.min.css
+      - link: diff2html.min.css
