@@ -1,8 +1,8 @@
 # (uncomment to add a dependency)
 dependencies:
   - name: highlight.js
-    version: 11.8.0
-    src: "htmlwidgets/lib/highlight.js-11.8.0"
+    version: 11.9.0
+    src: "htmlwidgets/lib/highlight.js-11.9.0"
     stylesheet:
       - link: github.min.css
         media: "screen and (prefers-color-scheme: light)"
