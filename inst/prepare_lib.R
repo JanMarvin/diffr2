@@ -7,8 +7,8 @@ unlink("inst/htmlwidgets/lib", recursive = TRUE)
 dir.create("inst/htmlwidgets/lib")
 
 highlightjs_ver <- "11.9.0"
-diff2html_ver <- "3.4.45"
-jsdiff_ver <- "5.0.0"
+diff2html_ver <- "3.4.46"
+jsdiff_ver <- "5.1.0"
 
 
 #### highlight.js ####
