@@ -15,6 +15,21 @@ git_log <- gert::git_log()
 
 # Define UI for application that shows the ten latest commits
 ui <- fluidPage(
+  tags$head(
+    tags$style(
+      "
+      /* Default background for light mode */
+        body {
+          background-color: #FFFFFF;
+        }
+      /* Dark mode background */
+        @media (prefers-color-scheme: dark) {
+          body {
+            background-color: #0d1117;
+          }
+        }"
+    )
+  ),
 
   # Application title
   titlePanel("shiny_example"),
