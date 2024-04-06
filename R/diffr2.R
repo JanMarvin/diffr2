@@ -13,7 +13,7 @@
 #' @export
 create_diff <- function(oldFile = NULL, newFile = NULL) {
 
-  if (!is.null(oldFile) & !is.null(newFile)) {
+  if (!is.null(oldFile) && !is.null(newFile)) {
     if (!file.exists(oldFile) || !file.exists(newFile)) {
       old <- oldFile
       oldFile <- "file"
@@ -97,14 +97,14 @@ diffr2 <- function(
     renderNothingWhenEmpty = FALSE,
     matchingMaxComparisons = 2500,
     maxLineSizeInBlockForComparison = 200,
-    divname = 'htmlwidget_container',
+    divname = "htmlwidget_container",
     colorScheme = "auto"
 ) {
 
   if (is.null(oldFile) && is.null(newFile) && is.null(diff))
     stop("no input provided")
 
-  if (is.null(newFile) & is.null(diff))
+  if (is.null(newFile) && is.null(diff))
     diff <- oldFile # override for lazy programmer
 
   # override if diff is provided (could be from git diff etc.)
@@ -140,11 +140,11 @@ diffr2 <- function(
 
   # create the widget
   createWidget(
-    name = 'diffr2',
+    name = "diffr2",
     x = x,
     width = width,
     height = height,
-    package = 'diffr2'
+    package = "diffr2"
   )
 }
 
@@ -168,6 +168,6 @@ diffr2Output <- function(outputId, width = "100%", height = "400px") {
 #' @rdname diffr2-shiny
 #' @export
 renderDiffr2 <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
+  if (!quoted) expr <- substitute(expr) # force quoted
   htmlwidgets::shinyRenderWidget(expr, diffr2Output, env, quoted = TRUE)
 }

@@ -57,18 +57,21 @@ ui <- fluidPage(
 # Define server logic required to draw diffr2
 server <- function(input, output) {
 
-  output$git_log <- renderDT({
-    git_log[input$refs,]
+  output$git_log <- DT::renderDT({
+    git_log[input$refs, ]
   })
 
   output$git_diff <- diffr2::renderDiffr2(
-    diffr2(diff = paste(
-      gert::git_diff_patch(
-        ref = git_log$commit[input$refs],
-        repo = "."),
-      collapse = "\n"),
+    diffr2(
+      diff = paste(
+        gert::git_diff_patch(
+          ref = git_log$commit[input$refs],
+          repo = "."
+        ),
+        collapse = "\n"
+      ),
       outputFormat = "side-by-side",
-      divname = 'git_diff')
+      divname = "git_diff")
   )
 }
 
