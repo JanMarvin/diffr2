@@ -2,9 +2,9 @@
 
 R package for creating code differences with JavaScript based on:
 
-[diff2html](https://github.com/rtfpessoa/diff2html) and [jsdiff](https://github.com/kpdecker/jsdiff)
+[diff2html](https://github.com/rtfpessoa/diff2html) and [jsdiff](https://github.com/kpdecker/jsdiff). This package is not related with the CRAN package `diffr` (the sole reminiscence is the name).
 
-With `create_diff()` it is possible to create diffs from characters or text files (either both inputs are text files or they are text files) and compare them interactively in the form of an `htmlwidget`. If the latter is chosen, other local diffs, e.g. from Git repositories can be used. For instance with [`gert`](https://github.com/r-lib/gert) see the example below. `diffr2` can use various options to change the appearance of the diff, e.g. display both inputs side by side.
+With `create_diff()` it is possible to create diffs from characters or text files (either both inputs are text files or they are text files) and compare them interactively in the form of an `htmlwidget`. If the latter is chosen, other local diffs, e.g. from Git repositories can be used. For instance with [`gert`](https://github.com/r-lib/gert) see the example below. `diffr2` can use various options to change the appearance of the diff, e.g. display both inputs side by side. Similarly it is possible to create diffs with [`libxdiffR`](https://github.com/JanMarvin/libxdiffR)
 
 If necessary, `diffr2` can be used in combination with [`shiny`](https://shiny.rstudio.com/). An example file is included.
 
