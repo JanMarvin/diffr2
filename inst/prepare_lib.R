@@ -8,7 +8,7 @@ dir.create("inst/htmlwidgets/lib")
 
 highlightjs_ver <- "11.9.0"
 diff2html_ver <- "3.4.51"
-jsdiff_ver <- "7.0.0"
+jsdiff_ver <- "8.0.2"
 
 
 #### highlight.js ####
