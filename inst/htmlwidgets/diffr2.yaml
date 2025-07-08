@@ -9,8 +9,8 @@ dependencies:
       - link: github-dark.min.css
         media: "screen and (prefers-color-scheme: dark)"
   - name: diff2html
-    version: 3.4.51
-    src: "htmlwidgets/lib/diff2html-3.4.51"
+    version: 3.4.52
+    src: "htmlwidgets/lib/diff2html-3.4.52"
     script:
       - diff2html-ui.min.js
     stylesheet:
